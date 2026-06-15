@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "id": "user-1",
+      "name": "Juan Perez",
+      "email": "juan@example.com",
+      "plan": "premium"
+    },
+    {
+      "id": "user-2",
+      "name": "Maria Lopez",
+      "email": "maria@example.com"
+    },
+    {
+      "id": "user-3",
+      "name": "Carlos Gomez",
+      "email": "carlos@example.com",
+      "plan": "standard"
+    }
+  ],
+  "services": [
+    {
+      "id": "svc-1",
+      "name": "Corte de Cabello",
+      "durationMinutes": 30,
+      "price": 50000,
+      "nonRefundable": false,
+      "professionalId": "prof-1"
+    },
+    {
+      "id": "svc-2",
+      "name": "Coloracion de Cabello",
+      "durationMinutes": 120,
+      "price": 150000,
+      "nonRefundable": false,
+      "professionalId": "prof-1"
+    },
+    {
+      "id": "svc-3",
+      "name": "Tratamiento Premium",
+      "durationMinutes": 90,
+      "price": 200000,
+      "nonRefundable": true,
+      "professionalId": "prof-2"
+    },
+    {
+      "id": "svc-4",
+      "name": "Manicure",
+      "durationMinutes": 45,
+      "price": 35000,
+      "professionalId": "prof-3"
+    }
+  ],
+  "reservations": [
+    {
+      "id": "res-1",
+      "userId": "user-3",
+      "serviceId": "svc-1",
+      "startDateTime": "2026-06-20T10:00:00Z",
+      "status": "active"
+    },
+    {
+      "id": "res-2",
+      "userId": "user-1",
+      "serviceId": "svc-3",
+      "startDateTime": "20/06/2026 14:30",
+      "status": "active"
+    },
+    {
+      "id": "res-3",
+      "userId": "user-2",
+      "serviceId": "svc-2",
+      "startDateTime": 1782068400000,
+      "status": "active"
+    },
+    {
+      "id": "res-4",
+      "userId": "user-3",
+      "serviceId": "svc-4",
+      "startDateTime": "2026-06-19T08:00:00-05:00",
+      "status": "cancelled"
+    }
+  ]
+}
