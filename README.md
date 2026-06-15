@@ -4,6 +4,9 @@ Este proyecto es una API RESTful desarrollada con **Express.js** y **TypeScript*
 
 ---
 
+<img width="524" height="192" alt="image" src="https://github.com/user-attachments/assets/c598461c-8c8d-4110-b2de-c295445c52df" />
+
+
 ## 🛠️ Requisitos e Instalación
 
 ### Requisitos Previos
