@@ -1,6 +1,6 @@
 # Booking Management System (API de Gestión de Reservas)
 
-Este proyecto es una API RESTful desarrollada con **Express.js** y **TypeScript** para la gestión de reservas de una plataforma de servicios. Implementa todas las reglas de negocio especificadas en la prueba técnica, incluyendo validación de horarios, días festivos en Colombia 2026, solapamientos, límites de reservas concurrentes y políticas de reembolso por cancelación segmentadas por el plan de usuario.
+Este proyecto es una API RESTful desarrollada con **Express.js** y **TypeScript** para la gestión de reservas de una plataforma de servicios. Implementa todas las reglas de negocio especificadas en la prueba técnica, incluyendo validación de horarios, días festivos en Colombia 2026, solapamientos, límites de reservas concurrentes y políticas de reembolso por cancelación .
 
 ---
 
