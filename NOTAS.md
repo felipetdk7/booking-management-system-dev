@@ -10,17 +10,17 @@ Este archivo detalla qué partes del código fueron diseñadas y generadas con a
 - **Sugerido por la IA**: El plan original sugería usar Next.js App Router.
 - **Ajustado por el Desarrollador**: Se tomó la decisión de simplificar a **Express.js + TypeScript** (con arquitectura limpia por capas: Dominio, Repositorios, Servicios, HTTP e Infraestructura). Esta decisión se justifica por ser el stack ideal ("just-in-time") para una API HTTP sin UI, reduciendo el acoplamiento y facilitando la defensa técnica en la entrevista.
 
-### 2. Capa de Dominio (Desarrollador)
+### 2. Capa de Dominio (IA)
 - **Saneamiento de Zona Horaria (America/Bogota)**: Se implementó `DateTimeService` utilizando `date-fns-tz` para encapsular toda conversión horaria. El desarrollador garantizó que las fechas se guarden siempre en UTC, pero la lógica de reglas se evalúe bajo la hora local de Bogotá.
 - **Festivos Oficiales de Colombia 2026**: El listado de 18 días feriados nacionales oficiales (con la Ley Emiliani de traslado aplicada) fue investigado y hardcodeado manualmente en `src/domain/colombian-holidays.ts` para asegurar fidelidad legal al año 2026.
 - **Validador de Reglas de Creación (`BookingRulesValidator`)**: Diseñado como un conjunto de funciones puras fáciles de testear. El desarrollador incluyó la validación de solapamiento de profesionales usando la fórmula de intersección matemática de intervalos (`startA < endB && startB < endA`), y el control estricto de límite de 3 reservas activas.
 
 ### 3. Normalizador de Semilla (`SeedNormalizer`) (IA & Desarrollador)
 - **Estructura Zod (IA)**: Estructuras básicas de validación generadas con Zod.
-- **Procesamiento de Fechas Mixtas (Desarrollador)**: Se escribió lógica personalizada con expresiones regulares para capturar el formato local colombiano `DD/MM/YYYY HH:mm`, convertir timestamps numéricos Unix, e interpretar fechas ISO sin huso horario como locales de Bogotá (-05:00).
-- **Advertencias y Fallbacks (Desarrollador)**: El desarrollador configuró avisos preventivos con `console.warn` para alertar cuando un dato del `seed.json` era corregido o completado por defecto (p.ej., asignación de plan `"standard"`, o `nonRefundable` en `false`).
+- **Procesamiento de Fechas Mixtas (IA)**: Se escribió lógica personalizada con expresiones regulares para capturar el formato local colombiano `DD/MM/YYYY HH:mm`, convertir timestamps numéricos Unix, e interpretar fechas ISO sin huso horario como locales de Bogotá (-05:00).
+- **Advertencias y Fallbacks (IA)**: El desarrollador configuró avisos preventivos con `console.warn` para alertar cuando un dato del `seed.json` era corregido o completado por defecto (p.ej., asignación de plan `"standard"`, o `nonRefundable` en `false`).
 
-### 4. Capa de Servicios y Errores Tipados (Desarrollador)
+### 4. Capa de Servicios y Errores Tipados (IA)
 - **Mapeo de Excepciones**: Se definieron clases de error de negocio (`ValidationError`, `NotFoundError`, `ConflictError`).
 - **Manejo de Tiempos Determinista (`getNow`)**: El desarrollador inyectó la función `getNow: () => Date` en el constructor de `ReservationService`. Esto permite que los tests congelen o manipulen el reloj del sistema a voluntad, logrando una suite de pruebas 100% determinista e independiente de cuándo se ejecuten.
 
